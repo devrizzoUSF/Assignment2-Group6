@@ -22,12 +22,14 @@ namespace Assignment2_Group6
             Console.WriteLine(rs);
 
             //QUESTION 3
+            Console.WriteLine();
             Console.WriteLine("Question 3");
-            int[] l2 = new int[] { 2, 2, 3, 5, 6 };
+            int[] l2 = new int[] { 2, 2, 3, 5, 6, 6, 7 };
             int sum = MinimumSum(l2);
             Console.WriteLine(sum);
 
             //QUESTION 4
+            Console.WriteLine();
             Console.WriteLine("Question 4");
             string s2 = "Dell";
             string sortedString = FreqSort(s2);
@@ -42,7 +44,6 @@ namespace Assignment2_Group6
             Console.WriteLine("Part 1- Intersection of two arrays is: ");
             DisplayArray(intersect1);
             Console.WriteLine("\n");
-
 
             //QUESTION 5 - PART 2
             Console.WriteLine("Question 5-Part 2");
@@ -149,33 +150,17 @@ namespace Assignment2_Group6
                         indexEnd = 0;
                     }
                 }
-                parts.ForEach(Console.WriteLine);
+                parts.ForEach(Console.Write);
                 */
 
                 //Approach 2 - reverse entire string then somehow rearrange so it maintains the same
                 //word order
-                /* 
                 Char[] newArr = s.ToCharArray();
 
                 for (int i = newArr.Length - 1; i >= 0; i--)
 
                 Console.Write(newArr[i]);
-                */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
             }
             catch (Exception)
             {
@@ -186,15 +171,25 @@ namespace Assignment2_Group6
 
         public static int MinimumSum(int[] l2)
         {
+            int newSum = 0;
+
             try
             {
-                //Write your code here;
+                for (int i = 0; i < l2.Length; i++)
+                {
+                    if (i != l2.Length - 1 && l2[i] == l2[i + 1])
+                    {
+                        l2[i + 1] = l2[i] + 1;
+                    }
+                    
+                    newSum += l2[i];
+                }
             }
             catch (Exception)
             {
                 throw;
             }
-            return 0;
+            return newSum;
         }
 
         public static string FreqSort(string s2)
