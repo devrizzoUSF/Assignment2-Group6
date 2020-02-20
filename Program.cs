@@ -70,7 +70,10 @@ namespace Assignment2_Group6
             string[] userDict = new string[] { "rocky", "usf", "hello", "apple" };
             string keyword = "hhllo";
             Console.WriteLine(DictSearch(userDict, keyword));
-            Console.WriteLine("Question 8");
+
+            //QUESTION 9
+            Console.WriteLine();
+            Console.WriteLine("Question 9");
             SolvePuzzle();
         }
         public static void DisplayArray(int[] a)
