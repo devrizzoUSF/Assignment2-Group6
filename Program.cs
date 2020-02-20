@@ -124,48 +124,27 @@ namespace Assignment2_Group6
         {
             try
             {
-                //Approach 1 : put all substrings into a list, then reverse each one and write
-                //them to the console 
-                /*
-                List<string> parts = new List<string>();
+                s = s + " ";
 
-                int indexStart = 0;
-                int indexEnd = 0;
+                Stack<char> st = new Stack<char>();
 
-                for (int i = 0; i < s.Length; i++)
+                for (int i = 0; i < s.Length; ++i)
                 {
-
-                    if (!Char.IsWhiteSpace(s[i]))
+                    if (s[i] != ' ')
                     {
-                        if (i == s.Length - 1)
-                        {
-                            indexEnd += 1;
-                            parts.Add(s.Substring(indexStart, indexEnd));
-                        }
-                        else
-                        {
-                            indexEnd += 1;
-                        }
+                        st.Push(s[i]);
                     }
+                    
+                    //When we see a space we print the contents of the stack
                     else
                     {
-                        indexEnd += 1;
-                        parts.Add(s.Substring(indexStart, indexEnd));
-                        indexStart = i + 1;
-                        indexEnd = 0;
+                        while (st.Count > 0)
+                        {
+                            Console.Write(st.Pop());
+                        }
+                        Console.Write(" ");
                     }
                 }
-                parts.ForEach(Console.Write);
-                */
-
-                //Approach 2 - reverse entire string then somehow rearrange so it maintains the same
-                //word order
-                Char[] newArr = s.ToCharArray();
-
-                for (int i = newArr.Length - 1; i >= 0; i--)
-
-                Console.Write(newArr[i]);
-    
             }
             catch (Exception)
             {
