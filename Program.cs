@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment2_Group6
 {
@@ -31,11 +32,12 @@ namespace Assignment2_Group6
             //QUESTION 4
             Console.WriteLine();
             Console.WriteLine("Question 4");
-            string s2 = "Dell";
+            string s2 = "DeddDDell";
             string sortedString = FreqSort(s2);
             Console.WriteLine(sortedString);
 
             //QUESTION 5 - PART 1
+            Console.WriteLine();
             Console.WriteLine("Question 5-Part 1");
             int[] nums1 = { 1, 2, 2, 1 };
             int[] nums2 = { 2, 2 };
@@ -199,7 +201,27 @@ namespace Assignment2_Group6
         {
             try
             {
-                //Write Your Code Here
+                Dictionary<char, int> freqKey = new Dictionary<char, int>();
+
+                for (int i = 0; i < s2.Length; i++)
+                {
+                    if (!freqKey.ContainsKey(s2[i]))
+                    {
+                        freqKey.Add(s2[i], 1);
+                    }
+                    else 
+                    {
+                        freqKey[s2[i]] += 1;
+                    }
+                }
+
+                foreach(var item in freqKey.OrderByDescending(x => x.Value))
+                {
+                    for(int d = 0; d < item.Value; d++)
+                    {
+                        Console.Write(item.Key);
+                    }
+                }
             }
             catch (Exception)
             {
